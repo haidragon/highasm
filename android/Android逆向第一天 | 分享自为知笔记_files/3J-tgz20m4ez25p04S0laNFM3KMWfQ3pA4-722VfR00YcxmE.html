@@ -1,0 +1,364 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Android逆向第一天.md</title><style name="wiz_tmp_editor_style">body {word-wrap: break-word;}</style><style name="wiz_tmp_editor_style">img.lazyload {display:block; color:transparent; margin:10px; width:300px!important; height:100px!important;}img.lazyload.wiz-todo-img {display:inline; width:16px !important; height:16px !important; margin: 0 10px 0 2px;}img.lazyload.wiz-todo-avatar {display:inline; width:20px !important; height:20px !important; margin: 0 10px 0 0;}body pre.prettyprint {padding:0}body pre.prettyprint code {white-space: pre;}body pre.prettyprint.linenums {box-shadow:none; overflow: auto;-webkit-overflow-scrolling: touch;}body pre.prettyprint.linenums ol.linenums {box-shadow: 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset; padding: 10px 10px 10px 40px !important;}</style><link rel="stylesheet" charset="utf-8" name="wiz_tmp_editor_style" href="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/github2.css"><link rel="stylesheet" charset="utf-8" name="wiz_tmp_editor_style" href="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/wizToc.css"><script type="text/javascript" charset="utf-8" src="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/prettify.js" id="wiz_/share/libs/component/markdown-parse/dependency/prettify.83028912.js"></script><script type="text/javascript" charset="utf-8" src="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/raphael.js" id="wiz_/share/libs/component/markdown-parse/dependency/raphael.86599980.js"></script><script type="text/javascript" charset="utf-8" src="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/underscore.js" id="wiz_/share/libs/component/markdown-parse/dependency/underscore.8723d0be.js"></script><script type="text/javascript" charset="utf-8" src="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/flowchart.js" id="wiz_/share/libs/component/markdown-parse/dependency/flowchart.bdd8fb37.js"></script><script type="text/javascript" charset="utf-8" src="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/sequence-diagram.js" id="wiz_/share/libs/component/markdown-parse/dependency/sequence-diagram.d39ddc9a.js"></script><style id="wiz_custom_css">html, body {font-size: 12pt;}body {font-family: Helvetica, "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei UI", SimSun, SimHei, arial, sans-serif;line-height: 1.6;margin: 0 auto;padding: 20px 16px;padding: 1.25rem 1rem;}h1, h2, h3, h4, h5, h6 {margin:20px 0 10px;margin:1.25rem 0 0.625rem;padding: 0;font-weight: bold;}h1 {font-size:20pt;font-size:1.67rem;}h2 {font-size:18pt;font-size:1.5rem;}h3 {font-size:15pt;font-size:1.25rem;}h4 {font-size:14pt;font-size:1.17rem;}h5 {font-size:12pt;font-size:1rem;}h6 {font-size:12pt;font-size:1rem;color: #777777;margin: 1rem 0;}div, p, ul, ol, dl, li {margin:0;}blockquote, table, pre, code {margin:8px 0;}ul, ol {padding-left:32px;padding-left:2rem;}ol.wiz-list-level1 > li {list-style-type:decimal;}ol.wiz-list-level2 > li {list-style-type:lower-latin;}ol.wiz-list-level3 > li {list-style-type:lower-roman;}blockquote {padding:0 12px;padding:0 0.75rem;}blockquote > :first-child {margin-top:0;}blockquote > :last-child {margin-bottom:0;}img {border:0;max-width:100%;height:auto !important;margin:2px 0;}table {border-collapse:collapse;border:1px solid #bbbbbb;}td, th {padding:4px 8px;border-collapse:collapse;border:1px solid #bbbbbb;height:28px;word-break:break-all;box-sizing: border-box;}.wiz-hide {display:none !important;}</style><link rel="stylesheet" charset="utf-8" name="wiz_tmp_editor_style" href="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/custom.css"><style type="text/css" name="wiz_tmp_editor_style">.wiz-detail-image {cursor:pointer;}</style><script type="text/javascript">MathJax = null</script><script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({skipStartupTypeset: true,"HTML-CSS": {preferredFont: "TeX",availableFonts: ["STIX","TeX"],linebreaks: {automatic: true},EqnChunk: 10,imageFont: null},tex2jax: {inlineMath: [["$","$"],["\\\\(","\\\\)"]],displayMath: [["$$","$$"],["\\[","\\]"]],processEscapes: true },TeX: {equationNumbers: {autoNumber: "AMS"},noUndefined: {attributes: {mathcolor: "red",mathbackground: "#FFEEEE",mathsize: "90%"}},Safe: {allow: {URLs: "safe",classes: "safe",cssIDs: "safe",styles: "safe",fontsize: "all"}}},messageStyle: "none"});</script><script src="3J-tgz20m4ez25p04S0laNFM3KMWfQ3pA4-722VfR00YcxmE_data/MathJax.js" id="wiz_http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript">MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.body, _wizMathJaxCallback]);</script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body class="markdown-body"><div id="MathJax_Message" style="display: none;"></div><h1 id="Android逆向第一天">Android逆向第一天</h1>
+
+<p><div class="wiz_toc_layer"><a class="wiz_toc h1" href="#Android逆向第一天" target="_blank">Android逆向第一天</a><br><a class="wiz_toc h2" href="#0. Android逆向第一天介绍" target="_blank">0. Android逆向第一天介绍</a><br><a class="wiz_toc h2" href="#1. Android APK文件结构" target="_blank">1. Android APK文件结构</a><br><a class="wiz_toc h3" href="#问题：Android APK的入口函数是什么？" target="_blank">问题：Android APK的入口函数是什么？</a><br><a class="wiz_toc h3" href="#Android 系统历史" target="_blank">Android 系统历史</a><br><a class="wiz_toc h2" href="#2.    SDK工具-adb,monitor" target="_blank">2.    SDK工具-adb,monitor</a><br><a class="wiz_toc h3" href="#adb命令" target="_blank">adb命令</a><br><a class="wiz_toc h3" href="#monitor操作" target="_blank">monitor操作</a><br><a class="wiz_toc h2" href="#3. Android逆向工具" target="_blank">3. Android逆向工具</a><br><a class="wiz_toc h3" href="#①命令行工具" target="_blank">①命令行工具</a><br><a class="wiz_toc h4" href="#1.AndroidManifest.xml清单文件解密工具" target="_blank">1.AndroidManifest.xml清单文件解密工具</a><br><a class="wiz_toc h4" href="#2.Dex文件反汇编、汇编工具" target="_blank">2.Dex文件反汇编、汇编工具</a><br><a class="wiz_toc h4" href="#3.apk签名工具" target="_blank">3.apk签名工具</a><br><a class="wiz_toc h4" href="#4.apk反编译工具-apktool" target="_blank">4.apk反编译工具-apktool</a><br><a class="wiz_toc h4" href="#5.Dex2jar工具（转换文件格式）" target="_blank">5.Dex2jar工具（转换文件格式）</a><br><a class="wiz_toc h4" href="#6.Java反编译工具(将java文件反编译为源码)" target="_blank">6.Java反编译工具(将java文件反编译为源码)</a><br><a class="wiz_toc h3" href="#②可视化工具" target="_blank">②可视化工具</a><br><a class="wiz_toc h4" href="#1.AndroidKiller工具(集成了反编译、回编译、安装apk、查看源码)" target="_blank">1.AndroidKiller工具(集成了反编译、回编译、安装apk、查看源码)</a><br><a class="wiz_toc h4" href="#2.JEB反编译工具" target="_blank">2.JEB反编译工具</a><br><a class="wiz_toc h4" href="#3.Jadx-GUI" target="_blank">3.Jadx-GUI</a><br><a class="wiz_toc h4" href="#4.GDA 反编译工具" target="_blank">4.GDA 反编译工具</a><br><a class="wiz_toc h2" href="#4. Android逆向分析方法" target="_blank">4. Android逆向分析方法</a><br><a class="wiz_toc h2" href="#5. 字符串分析法-实例-破解一个apk的流程" target="_blank">5. 字符串分析法-实例-破解一个apk的流程</a><br><a class="wiz_toc h3" href="#破解步骤" target="_blank">破解步骤</a><br><a class="wiz_toc h3" href="#使用AndroidKiller用字符串分析法" target="_blank">使用AndroidKiller用字符串分析法</a><br><a class="wiz_toc h2" href="#6. Smali代码-HelloWorld" target="_blank">6. Smali代码-HelloWorld</a><br><a class="wiz_toc h2" href="#7. 日志过滤法-实例" target="_blank">7. 日志过滤法-实例</a><br><a class="wiz_toc h3" href="#使用Monitor过滤日志" target="_blank">使用Monitor过滤日志</a><br><a class="wiz_toc h3" href="#使用AndroidKiller过滤日志" target="_blank">使用AndroidKiller过滤日志</a><br><a class="wiz_toc h2" href="#8. 配置环境问题" target="_blank">8. 配置环境问题</a><br><a class="wiz_toc h3" href="#夜神模拟器adb连接" target="_blank">夜神模拟器adb连接</a></div><a href="#wizToc" target="_blank"></a></p>
+
+<h2 id="0. Android逆向第一天介绍">0. Android逆向第一天介绍</h2>
+
+<ol>
+<li>Android APK文件结构</li>
+<li>SDK工具-adb,monitor</li>
+<li>逆向工具介绍</li>
+<li>Android逆向分析方法</li>
+<li>字符串分析法-实例-破解一个apk的流程</li>
+<li>日志过滤分析法</li>
+<li>配置环境问题</li>
+</ol>
+
+<h2 id="1. Android APK文件结构">1. Android APK文件结构</h2>
+
+<p>android studio生成的apk在以下目录 <br>
+<img data-src="/share/resources/eec3a3f4-d990-4f87-82e4-fd403c3215a8/index_files/6f792460-e189-4289-9659-fd5b847a55e4.png" style="vertical-align: bottom; max-width: 100%;" class="lazyload wiz-detail-image"></p>
+
+<p>基本的APK是一个压缩包，压缩包中有 <br>
+<img src="clip_image0016da30417-82e2-404b-9463-f77e550e4b7b.png" alt="" title="" class="wiz-detail-image"> <br>
+META-INF目录 签名信息，包括公司信息、文件的HASH值 <br>
+Res目录       资源信息，包括图片、xml(布局文件、字符串、风格样式等) <br>
+AndroidMainfest.xml 清单文件，包括APK包名、四大组件的一些申明定义、权限、程序的入口 <br>
+Classes.dex 可执行文件，包括java的类信息、方法信息、字段信息、虚拟机指令。dex文件的生成流程是从java源码-&gt;class文件-&gt;dex文件 <br>
+Resources.arsc 资源序号文件，包括资源里的所有ID、名称。资源ID对应文件是R.class <br>
+<img src="e54a2134-408f-4488-8bd6-a8a94c3d9cda.png" alt="" title="" class="wiz-detail-image"> <br>
+Lib目录  动态库，扩展名是.so ,包括C++代码，有各种平台，比如x86,arm <br>
+<img src="2d46a02b-78a1-42ca-bcce-4c3525d6c7f7.png" alt="" title="" class="wiz-detail-image"> <br>
+Assets目录 自定义资源，比如.txt,mp4,等等 <br>
+<img src="addbd422-bf1a-4886-861a-795dc5fd2093.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h3 id="问题：Android APK的入口函数是什么？">问题：Android APK的入口函数是什么？</h3>
+
+<p>自己定义的MainActivity中onCreate <br>
+清单文件中application节点可以添加android:name属性，指定继承自application的类，用于初始化整个app的全局信息。继承自application的类有两个重写函数会执行，是程序最早执行的函数。 <br>
+① attachBaseContext <br>
+② onCreate <br>
+<img src="3eb02909-1ee2-4ca5-99fb-59a5116e9132.png" alt="" title="" class="wiz-detail-image"> <br>
+所以一个app最早执行的函数是 application的类中的attachBaseContext函数 <br>
+一般apk加固之后，都会自定义application类，并重写其中的attachBaseContext函数或onCreate函数，并且声明为native类型的函数。 <br>
+app运行的流程 <br>
+<img src="eb9c5f17-868b-48f4-b87b-804b7e6bb30c.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h3 id="Android 系统历史">Android 系统历史</h3>
+
+<p>分为三个阶段 <br>
+① android2.3~4.0 卡顿 <br>
+② android4.1~4.4 成长，飞跃 <br>
+  android虚拟机dalvik-&gt;art <br>
+③ android5.0~现在 整体不错 <br>
+逆向分析的环境 <br>
+系统：android 4.4 （同时有dalvik和art） <br>
+手机: google nexus 4/5（500左右） <br>
+google nexus 6p(800左右)</p>
+
+<h2 id="2.    SDK工具-adb,monitor">2.    SDK工具-adb,monitor</h2>
+
+<h3 id="adb命令">adb命令</h3>
+
+<p>① 列举设备 <br>
+adb devices <br>
+②    将apk上传到设备 <br>
+adb push <local> <remote> <br>
+<img src="425889f4-cbf0-43eb-963c-8d7c089f6aed.png" alt="" title="" class="wiz-detail-image"> <br>
+③  安装apk <br>
+adb install -r apk文件名 （可以覆盖安装） <br>
+④    启动apk <br>
+adb shell am start -n &lt;包名/activity名称&gt;</remote></local></p>
+
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">adb </span><span class="pun">-</span><span class="pln">s emulator</span><span class="pun">-</span><span class="lit">5556</span><span class="pln"> shell am start </span><span class="pun">-</span><span class="pln">n com</span><span class="pun">.</span><span class="pln">bluelesson</span><span class="pun">.</span><span class="pln">helloworldndk21</span><span class="pun">/.</span><span class="typ">MainActivity</span></code></li></ol></pre>
+
+<p>adb shell am start -D -n &lt;包名/activity名称&gt; (以调试方式启动) <br>
+⑤ shell命令 <br>
+ls,cd,su,ps,ps | grep com,kill,chmod</p>
+
+<h3 id="monitor操作">monitor操作</h3>
+
+<p>① 概况</p>
+
+<ul>
+<li>androidstudio中打开 <br>
+<img src="c45f3f82-970b-41fd-b12a-bf9dabbf1f3b.png" alt="" title="" class="wiz-detail-image"></li>
+<li>文件目录中打开 <br>
+<img src="f42ae238-0735-4960-a81b-fc28fd075037.png" alt="" title="" class="wiz-detail-image"></li>
+<li>主要窗口 <br>
+<img src="d2e208e4-91ae-4cf6-a8ac-36528e23ea2d.jpg" alt="" title="" class="wiz-detail-image"> <br>
+② 设备列表 <br>
+<img src="a33c0c28-d53a-4a5e-b005-9833908f7808.jpg" alt="" title="" class="wiz-detail-image"> <br>
+③ 文件夹操作 <br>
+<img src="54d480de-df7c-42aa-a65e-c37846cd815f.jpg" alt="" title="" class="wiz-detail-image"> <br>
+④ 日志 <br>
+<img src="8d6d9605-f755-4efc-b846-c359d5acc6dc.jpg" alt="" title="" class="wiz-detail-image"> <br>
+过滤日志 <br>
+<img src="0e3af2a7-d0f8-4300-b970-8e9cec4eb1e8.png" alt="" title="" class="wiz-detail-image"></li>
+</ul>
+
+<h2 id="3. Android逆向工具">3. Android逆向工具</h2>
+
+<h3 id="①命令行工具">①命令行工具</h3>
+
+<h4 id="1.AndroidManifest.xml清单文件解密工具">1.AndroidManifest.xml清单文件解密工具</h4>
+
+<ul>
+<li>AXMLPrinter2.jar <br>
+java -jar AXMLPrinter2.jar &lt;清单文件&gt; <br>
+java -jar AXMLPrinter2.jar AndroidManifest.xml &gt; out.xml</li>
+<li>APK15PBParser.jar(集成了AXMLPrinter2.jar，apktool.jar中xml解析部分代码) <br>
+java -jar APK15PBParser.jar <apk> <br>
+java -jar APK15PBParser.jar HelloWorld1.apk</apk></li>
+</ul>
+
+<h4 id="2.Dex文件反汇编、汇编工具">2.Dex文件反汇编、汇编工具</h4>
+
+<p>Dex文件是android java代码编译生成的二进制文件，包含了虚拟机指令(dalvik虚拟机)</p>
+
+<ul>
+<li>Baksmali.jar（反汇编工具，将虚拟机指令反汇编成smali代码） <br>
+java -jar baksmali.jar <dex> -o &lt;输出目录&gt; <br>
+java -jar baksmali.jar classes.dex -o out_dir <br>
+反汇编生成的目录中，包括所有dex文件中的类代码，每一个类就是一个smali文件。 <br>
+Java中有三种类，外部类、内部类、匿名类 <br>
+外部类：MainActivity.java -&gt; MainActivity.smali <br>
+内部类：MainActivity类中MyOnClickListener类 <code>MainActivity$MyOnClickListener.smali</code> <br>
+匿名内部类：MainActivity类中new OnClickListener对象 -&gt; MainActivity$1.smali</dex></li>
+<li>smali.jar(汇编工具，将smali代码汇编生成dex文件) <br>
+java -jar smali.jar &lt;目录&gt; -o 文件名 <br>
+java -jar smali.jar out_dir -o out.dex <br>
+修改smali代码，#号是注释代码 <br>
+// # if-eqz v2, :cond_24</li>
+</ul>
+
+<h4 id="3.apk签名工具">3.apk签名工具</h4>
+
+<p>签名工具，使用android系统源码编译时用到的一个工具 <br>
+java -jar signapk.jar testkey.x509.pem testkey.pk8 update.apk update_signed.apk</p>
+
+<h4 id="4.apk反编译工具-apktool">4.apk反编译工具-apktool</h4>
+
+<p>反编译apk <br>
+java -jar apktool.jar d <apk> <br>
+java -jar apktool.jar d HelloWorld.apk <br>
+①将清单文件以及其他xml文件解密 <br>
+②将资源序号文件(resources.arsc)与资源名称做了一个对应关系表 <br>
+生成在了/res/values/public.xml <br>
+③将dex文件反编译成了smali代码</apk></p>
+
+<p>回编译 apk目录 <br>
+java -jar apktool.jar b &lt;反编译的apk文件目录&gt; <br>
+java -jar apktool.jar b HelloWorld <br>
+生成的APK在 &lt;反编译的apk文件目录&gt;/dist目录中</p>
+
+<h4 id="5.Dex2jar工具（转换文件格式）">5.Dex2jar工具（转换文件格式）</h4>
+
+<p>dex2jar&gt;d2j-dex2jar.bat <dex> <br>
+dex2jar&gt;d2j-dex2jar.bat classes.dex <br>
+dex2jar classes.dex -&gt; .\classes-dex2jar.jar</dex></p>
+
+<h4 id="6.Java反编译工具(将java文件反编译为源码)">6.Java反编译工具(将java文件反编译为源码)</h4>
+
+<p><img src="clip_image00244e8faa5-8c7e-4794-9735-6653aa85dc28.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h3 id="②可视化工具">②可视化工具</h3>
+
+<h4 id="1.AndroidKiller工具(集成了反编译、回编译、安装apk、查看源码)">1.AndroidKiller工具(集成了反编译、回编译、安装apk、查看源码)</h4>
+
+<ul>
+<li>apktool <br>
+所在目录：AndroidKiller_v1.3.1\bin\apktool\apktool <br>
+<img src="clip_image0030a340519-2867-49c3-832b-5b5809514eb0.png" alt="" title="" class="wiz-detail-image"> <br>
+在Androidkiller中设置新的apktool <br>
+<img src="clip_image004141703bc-996b-4106-9404-f2de2bc14127.png" alt="" title="" class="wiz-detail-image"> <br>
+<img src="clip_image005834b0630-ee81-4710-9b37-f686f4e6fd88.png" alt="" title="" class="wiz-detail-image"> <br>
+<img src="clip_image006971477d6-216f-47a9-a768-d2cf298f0042.png" alt="" title="" class="wiz-detail-image"> <br>
+<img src="clip_image007a37571f5-97e1-4d8f-8a83-825d14b4de8d.png" alt="" title="" class="wiz-detail-image"></li>
+<li><p>adb工具 <br>
+常用命令 <br>
+打开shell：adb shell ， adb -s 设备名称 shell <br>
+安装apk： adb install 1.apk ， adb install -r 1.apk <br>
+列举设备： adb devices</p></li>
+<li><p>dex2jar工具集 <br>
+将dex文件转成jar文件，方便jd-gui反编译</p></li>
+<li>jd-gui工具 <br>
+可以查看smali代码对应的java源码 <br>
+<img src="clip_image0089e46662c-b4b2-4d0d-a99c-4b4b959c2fb0.png" alt="" title="" class="wiz-detail-image"> <br>
+此外还有一些好工具的辅助工具 <br>
+<img src="clip_image009bcae1ec9-36f5-4784-a621-15d1fe6273dc.png" alt="" title="" class="wiz-detail-image"> <br>
+编码转换 <br>
+<img src="clip_image017f6a37d76-765d-4316-9b3b-7f7518c344a0.png" alt="" title="" class="wiz-detail-image"> <br>
+<img src="clip_image01832d7e195-584c-4da6-a76b-83341b5270ae.png" alt="" title="" class="wiz-detail-image"></li>
+</ul>
+
+<h4 id="2.JEB反编译工具">2.JEB反编译工具</h4>
+
+<p><img src="clip_image010e9a28935-8d8b-4d22-9bec-81224df99819.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h4 id="3.Jadx-GUI">3.Jadx-GUI</h4>
+
+<p><img src="clip_image0116d996162-be94-45ee-9535-0bf04b544342.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h4 id="4.GDA 反编译工具">4.GDA 反编译工具</h4>
+
+<p><img src="clip_image0121d55e637-3975-4350-b3cd-a63ad783812e.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h2 id="4. Android逆向分析方法">4. Android逆向分析方法</h2>
+
+<p>①    字符串分析法 <br>
+②    日志分析法 <br>
+③    动态调试smali, 动态调试so文件(c++生成的文件) <br>
+④    API下断(调试so,对linux API下断)，栈回溯分析</p>
+
+<h2 id="5. 字符串分析法-实例-破解一个apk的流程">5. 字符串分析法-实例-破解一个apk的流程</h2>
+
+<h3 id="破解步骤">破解步骤</h3>
+
+<ol>
+<li>拿到apk</li>
+<li>使用反编译工具进行反编译</li>
+<li>根据apk运行提示，查找字符串</li>
+<li>查找字符串进行分析，找关键代码修改</li>
+<li>使用重打包工具进行重打包</li>
+<li>使用签名工具进行签名</li>
+</ol>
+
+<h3 id="使用AndroidKiller用字符串分析法">使用AndroidKiller用字符串分析法</h3>
+
+<p>但是需要注意的是，中文字符串在Android是以Unicode编码方式显示的，格式类似\u4e0d\u597d\u610f\u601d。我们需要进行转换，AndroidkKiller提供了这个功能 <br>
+<img src="clip_image0018bec1c10-e4eb-4d2f-bc2b-bdb00e9d546c.png" alt="" title="" class="wiz-detail-image"> <br>
+通过查找到对应代码，然后在代码附近可以发现显示成功的字符串。在成功字符串上面有关键跳转，我们只需要将关键跳转nop掉即可。其实在smali使用#号注释掉即可。 <br>
+<img src="clip_image002ae344e27-8519-48ff-950c-7f489d618c81.png" alt="" title="" class="wiz-detail-image"> <br>
+在代码的上方，应该就是正确密码比对的地方，查看上下文发现v2寄存器，使用资源ID中获取的一个字符串。 <br>
+<img src="clip_image003fc135979-86c7-4041-b882-04bf6fff9c5d.png" alt="" title="" class="wiz-detail-image"> <br>
+在这个时候，一般在工程中搜索资源ID，从资源ID找到对应的资源名称以及类型，然后再根据类型和名称找到对应资源的定义。 <br>
+<img src="clip_image0046ec4a51c-d568-4c10-a103-49f8f71adbdf.png" alt="" title="" class="wiz-detail-image"> <br>
+然后再去搜索对应资源名称，找到字符串定义，因为已经知道类型是sting,直接可以查看文件res/values/strings.xml。 <br>
+<img src="clip_image0056495e464-75aa-4595-92b9-159c116af791.png" alt="" title="" class="wiz-detail-image"> <br>
+之后，重新编译，安装测试。</p>
+
+<h2 id="6. Smali代码-HelloWorld">6. Smali代码-HelloWorld</h2>
+
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code class="language-cpp"><span class="pun">.</span><span class="kwd">class</span><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">LHelloWorld</span><span class="pun">;</span></code></li><li class="L1"><code class="language-cpp"></code></li><li class="L2"><code class="language-cpp"><span class="com">#Ye olde hello world application</span></code></li><li class="L3"><code class="language-cpp"><span class="com">#To assemble and run this on a phone or emulator:</span></code></li><li class="L4"><code class="language-cpp"><span class="com">#</span></code></li><li class="L5"><code class="language-cpp"><span class="com">#java -jar smali.jar -o classes.dex HelloWorld.smali</span></code></li><li class="L6"><code class="language-cpp"><span class="com">#zip HelloWorld.zip classes.dex</span></code></li><li class="L7"><code class="language-cpp"><span class="com">#adb push HelloWorld.zip /data/local</span></code></li><li class="L8"><code class="language-cpp"><span class="com">#adb shell dalvikvm -cp /data/local/HelloWorld.zip HelloWorld</span></code></li><li class="L9"><code class="language-cpp"><span class="com">#</span></code></li><li class="L0"><code class="language-cpp"><span class="com">#if you get out of memory type errors when running smali.jar, try</span></code></li><li class="L1"><code class="language-cpp"><span class="com">#java -Xmx512m -jar smali.jar HelloWorld.smali</span></code></li><li class="L2"><code class="language-cpp"><span class="com">#instead</span></code></li><li class="L3"><code class="language-cpp"></code></li><li class="L4"><code class="language-cpp"><span class="pun">.</span><span class="pln">super </span><span class="typ">Ljava</span><span class="pun">/</span><span class="pln">lang</span><span class="pun">/</span><span class="typ">Object</span><span class="pun">;</span></code></li><li class="L5"><code class="language-cpp"></code></li><li class="L6"><code class="language-cpp"></code></li><li class="L7"><code class="language-cpp"><span class="pun">.</span><span class="pln">method </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> main</span><span class="pun">([</span><span class="typ">Ljava</span><span class="pun">/</span><span class="pln">lang</span><span class="pun">/</span><span class="typ">String</span><span class="pun">;)</span><span class="pln">V</span></code></li><li class="L8"><code class="language-cpp"><span class="pln">    </span><span class="pun">.</span><span class="pln">registers </span><span class="lit">2</span></code></li><li class="L9"><code class="language-cpp"></code></li><li class="L0"><code class="language-cpp"><span class="pln">    sget</span><span class="pun">-</span><span class="pln">object v0</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Ljava</span><span class="pun">/</span><span class="pln">lang</span><span class="pun">/</span><span class="typ">System</span><span class="pun">;-&gt;</span><span class="pln">out</span><span class="pun">:</span><span class="typ">Ljava</span><span class="pun">/</span><span class="pln">io</span><span class="pun">/</span><span class="typ">PrintStream</span><span class="pun">;</span></code></li><li class="L1"><code class="language-cpp"></code></li><li class="L2"><code class="language-cpp"><span class="pln">    </span><span class="kwd">const</span><span class="pun">-</span><span class="pln">string    v1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Hello World!"</span></code></li><li class="L3"><code class="language-cpp"></code></li><li class="L4"><code class="language-cpp"><span class="pln">    invoke</span><span class="pun">-</span><span class="kwd">virtual</span><span class="pln"> </span><span class="pun">{</span><span class="pln">v0</span><span class="pun">,</span><span class="pln"> v1</span><span class="pun">},</span><span class="pln"> </span><span class="typ">Ljava</span><span class="pun">/</span><span class="pln">io</span><span class="pun">/</span><span class="typ">PrintStream</span><span class="pun">;-&gt;</span><span class="pln">println</span><span class="pun">(</span><span class="typ">Ljava</span><span class="pun">/</span><span class="pln">lang</span><span class="pun">/</span><span class="typ">String</span><span class="pun">;)</span><span class="pln">V</span></code></li><li class="L5"><code class="language-cpp"></code></li><li class="L6"><code class="language-cpp"><span class="pln">    </span><span class="kwd">return</span><span class="pun">-</span><span class="kwd">void</span></code></li><li class="L7"><code class="language-cpp"><span class="pun">.</span><span class="pln">end method</span></code></li></ol></pre>
+
+<p><img src="clip_image016a0a3a7be-f88e-4f9d-8402-b35534fc674a.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h2 id="7. 日志过滤法-实例">7. 日志过滤法-实例</h2>
+
+<h3 id="使用Monitor过滤日志">使用Monitor过滤日志</h3>
+
+<p>①添加过滤项 <br>
+<img src="clip_image019342e392c-f3e5-493f-a6ff-fca77e6ea1de.png" alt="" title="" class="wiz-detail-image"> <br>
+②搜索过滤 <br>
+<img src="clip_image020d8a88528-f57c-48e6-b033-b80b4860fe8b.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h3 id="使用AndroidKiller过滤日志">使用AndroidKiller过滤日志</h3>
+
+<p><img src="clip_image0215f218cb8-a7fa-49ab-a8e4-0615a7482eec.png" alt="" title="" class="wiz-detail-image"> <br>
+<img src="clip_image0220fae2097-144f-4d09-a592-169d43550dbc.png" alt="" title="" class="wiz-detail-image"></p>
+
+<h2 id="8. 配置环境问题">8. 配置环境问题</h2>
+
+<h3 id="夜神模拟器adb连接">夜神模拟器adb连接</h3>
+
+<p><img src="clip_image013ad60c92c-d28f-43ca-9869-d9d9395375d5.png" alt="" title="" class="wiz-detail-image"> <br>
+复制androidkiller中的adb以及dll，到SDK目录、夜神安装目录 <br>
+<img src="clip_image014946db141-551a-45cf-b648-145ce1e11b67.png" alt="" title="" class="wiz-detail-image"> <br>
+<img src="clip_image0151ac8c88b-39a8-4e9d-a7ba-6f4c361a35dd.png" alt="" title="" class="wiz-detail-image"></p></body></html>
